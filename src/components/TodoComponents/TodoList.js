@@ -7,7 +7,11 @@ class TodoList extends Component {
   render() {
     const listItems = this.props.todoData.map(listItem => {
       return (
-        <Todo listItem={listItem} key={listItem.id} />
+        <Todo 
+        listItem={listItem} 
+        key={listItem.id}
+        handleTodoClick={this.props.handleTodoClick}
+       />
       );
     });
 

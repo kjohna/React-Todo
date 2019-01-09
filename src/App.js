@@ -47,12 +47,31 @@ class App extends React.Component {
     });
   }
 
+  handleTodoClick = (e) => {
+    console.log(e.target.dataset.task, " clicked, id=", e.target.dataset.id);
+    console.log([...this.state.todoData].forEach(item => {
+      console.log(item.completed);
+    }));
+    // this.setState({
+    //   todoData: [
+    //     ...this.state.todoData
+    //   ].forEach(item => {
+    //     if (item.id === e.target.dataset.id) {
+    //       item.completed = !item.completed;
+    //     }
+    //   })
+    // });
+  }
+
   render() {
     console.log(this.state.inputText);
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoData={this.state.todoData} />
+        <TodoList 
+          todoData={this.state.todoData} 
+          handleTodoClick={this.handleTodoClick}
+        />
         <TodoForm 
           handleInput={this.handleInput}
           addTodoItem={this.addTodoItem} 
