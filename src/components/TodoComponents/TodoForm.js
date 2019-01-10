@@ -10,7 +10,8 @@ class TodoForm extends Component {
           value={this.props.inputText}
           onChange={this.props.handleInput}
         />
-        <button>Add Item</button>
+        <button>Add Todo</button>
+        <button type="button" onClick={this.props.clearCompleted}>Clear Completed</button>
       </form>
     );
   }

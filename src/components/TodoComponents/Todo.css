@@ -1,3 +1,34 @@
+.todo-list {
+  margin-bottom: 15px;
+}
+
+.todo-item {
+  margin-bottom: 5px;
+  color: #d6b77c;
+}
+
 .todo-item-complete {
+  color: #61ca92;
   text-decoration: line-through;
+}
+
+input {
+  margin-right: 5px;
+  background-color: #383838; /* #f4f2f1; */
+  border: 1px solid #808080; /* lightgray; */
+}
+
+input:focus {
+  background-color: #e6f2ff;
+  outline: none;
+}
+
+button {
+  margin-right: 5px;
+  color: #d1d1d1;
+  background-color: #787878;
+}
+
+button:focus {
+  outline: none;
 }
