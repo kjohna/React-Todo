@@ -18,7 +18,7 @@ const todoDataStarter = [
 ];
 
 let todoStoredData = null;
-localStorage.removeItem('tododata');
+// localStorage.removeItem('tododata');
 
 if (localStorage.getItem('tododata')) {
   console.log("local storage found");
