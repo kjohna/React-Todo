@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './Todo.css';
 
 function Todo(props) {
-    let completedStyle = "";
+    let itemStyle = "todo-item";
     if (props.listItem['completed']) {
-      completedStyle = " todo-item-complete";
+      itemStyle += " todo-item-complete";
+    }
+    if (props.listItem['hide']) {
+      itemStyle += " todo-item-hide";
     }
     return (
       <div 
-        className={`todo-item${completedStyle}`}
+        className={itemStyle}
         onClick={props.handleTodoClick}
         data-id={props.listItem['id']}
         data-task={props.listItem['task']}

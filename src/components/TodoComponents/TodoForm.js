@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 function TodoForm(props) {
     return (
@@ -7,6 +7,7 @@ function TodoForm(props) {
           type="text" 
           placeholder="New Todo Item"
           value={props.inputText}
+          name="inputText"
           onChange={props.handleInput}
         />
         <button>Add Todo</button>

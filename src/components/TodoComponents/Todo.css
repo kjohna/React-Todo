@@ -12,15 +12,22 @@
   text-decoration: line-through;
 }
 
+.todo-item-hide {
+  display: none;
+}
+
 input {
   margin-right: 5px;
+  margin-bottom: 15px;
   background-color: #383838; /* #f4f2f1; */
   border: 1px solid #808080; /* lightgray; */
+  color: #d1d1d1;
 }
 
 input:focus {
   background-color: #e6f2ff;
   outline: none;
+  color: #383838;
 }
 
 button {
