@@ -62,7 +62,7 @@ class App extends React.Component {
         }
       ],
       inputText: ""
-    }, setStorage('tododata', this.state.todoData));
+    }, () => {setStorage('tododata', this.state.todoData)});
   }
 
   handleTodoClick = (e) => {
@@ -74,14 +74,14 @@ class App extends React.Component {
       }
       return item;
     });
-    this.setState({ todoData: updatedTodoData }, setStorage('tododata', this.state.todoData));
+    this.setState({ todoData: updatedTodoData }, () => {setStorage('tododata', this.state.todoData)});
   }
 
   handleClearCompleted = (e) => {
     console.log("clear completed clicked");
     const updatedTodoData = this.state.todoData.filter(item => 
       item.completed === false);
-    this.setState({ todoData: updatedTodoData }, setStorage('tododata', this.state.todoData));
+    this.setState({ todoData: updatedTodoData }, () => {setStorage('tododata', this.state.todoData)});
   }
 
   render() {
