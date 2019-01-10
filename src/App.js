@@ -26,6 +26,10 @@ let todoStoredData = null;
 if (localStorage.getItem('tododata')) {
   console.log("local storage found");
   todoStoredData = JSON.parse(localStorage.getItem('tododata'));
+  // reset hidden items (in case of refresh during search)
+  todoStoredData.map(item => {
+    item.hide = false;
+  })
 } else {
   console.log("NO LOCAL STORAGE FOUND");
   setStorage('tododata', todoDataStarter);
@@ -34,7 +38,7 @@ if (localStorage.getItem('tododata')) {
 
 function setStorage(itemName, obj) {
   localStorage.setItem(itemName, JSON.stringify(obj));
-  console.log("setStorage: ", obj);
+  // console.log("setStorage: ", obj);
 }
 
 class App extends React.Component {
@@ -56,6 +60,9 @@ class App extends React.Component {
         // console.log("handleInput callback working");
         if(this.state.searchText){
           this.handleSearch();
+        } else {
+          // reset hidden items if search input is cleared
+          this.resetHiddenItems();
         }
       });
   }
@@ -98,7 +105,7 @@ class App extends React.Component {
   }
 
   handleSearch = () => {
-    console.log("search for: ", this.state.searchText);
+    // console.log("search for: ", this.state.searchText);
     const searchResults = this.state.todoData.map(item => {
       // set hide to true if the item contains the search string
       if(item.task.toLowerCase().includes(this.state.searchText.toLowerCase())) {
@@ -109,6 +116,16 @@ class App extends React.Component {
       return item;
     });
     this.setState({ todoData: searchResults }, () => {setStorage('tododata', this.state.todoData)});
+  }
+
+  resetHiddenItems() {
+    console.log("reset hidden items");
+    const todoTmp = this.state.todoData.map(item => {
+      item.hide = false;
+      return item;
+    });
+    // console.log(todoTmp);
+    this.setState({todoData: todoTmp});
   }
 
   render() {
