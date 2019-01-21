@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import './Todo.css';
 
@@ -17,7 +18,8 @@ function Todo(props) {
         data-id={props.listItem['id']}
         data-task={props.listItem['task']}
       >
-        {props.listItem['task']}
+        {props.listItem['task']} 
+        ---Created: {moment(parseInt(props.listItem['id'])).format('MMMM Do YYYY, h:mm:ss a')}
       </div>
     );
 }
