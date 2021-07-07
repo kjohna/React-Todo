@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
+import moment from 'moment';
 
 import './Todo.css';
 
-class Todo extends Component {
-  
-  render() {
-    let completedStyle = "";
-    if (this.props.listItem['completed']) {
-      completedStyle = " todo-item-complete";
+function Todo(props) {
+    let itemStyle = "todo-item";
+    if (props.listItem['completed']) {
+      itemStyle += " todo-item-complete";
+    }
+    if (props.listItem['hide']) {
+      itemStyle += " todo-item-hide";
     }
     return (
       <div 
-        className={`todo-item${completedStyle}`}
-        onClick={this.props.handleTodoClick}
-        data-id={this.props.listItem['id']}
-        data-task={this.props.listItem['task']}
+        className={itemStyle}
+        onClick={props.handleTodoClick}
+        data-id={props.listItem['id']}
+        data-task={props.listItem['task']}
       >
-        {this.props.listItem['task']}
+        {props.listItem['task']} 
+        ---Created: {moment(parseInt(props.listItem['id'])).format('MMMM Do YYYY, h:mm:ss a')}
       </div>
     );
-  }
 }
 
 export default Todo;

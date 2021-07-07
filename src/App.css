@@ -1,0 +1,14 @@
+body {
+  background-color: #1e1e1e;  /* #fef2e7; */
+  color: #85cbeb;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.app-todo-list {
+  margin: 50px 0;
+}
